@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+<button v-on:click="count++">Increase</button>
+<button v-on:click="count--">Decrease</button>
+<button v-on:click="secondCount++">SecondCounterIncrease</button>
+<p>Counter : {{ count }} | {{ secondCount }}</p>
+<p>Result : {{ result() }} | {{ output }}</p>
+</div>
+</body>
+<script type="text/javascript">
+	new Vue({
+		el:"#app",
+		data:{
+			count:0,
+			secondCount:0
+		},
+		computed:{
+			output:function(){
+				console.log('Compute');
+				return this.secondCount > 5 ? 'Greater than 5':'Smaller than 5';
+			}
+		},
+		watch:{
+			count:function(value){
+				var vm = this;
+				setTimeout(function(){
+					vm.count -= 2;
+				},2000);
+			}
+		},
+		methods:{
+			result:function(){
+				console.log('Method');
+				return this.count > 5 ? 'Greater than 5':'Smaller than 5';
+			}
+		}
+	})
+</script>
+</html>

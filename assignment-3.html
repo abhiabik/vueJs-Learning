@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Assignment 3</title>
+	<script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+<div id="app">
+	<div>
+		<p>Current Value : {{ value }}</p>
+		<button @click="value += 5"> Add 5</button>
+		<button @click="value += 1"> Add 1</button>
+		<p>{{ result }}</p>
+	</div>
+
+	<div>
+		<input type="text" name="">
+		<p>{{value}}</p>
+	</div>
+</div>
+</body>
+<script type="text/javascript">
+	new Vue({
+		el:"#app",
+		data:{
+			value:0
+		},
+		computed:{
+			result:function(){
+				return this.value >= 37 ? 'Done':'';
+			}
+		},
+		watch:{
+			value:function(){
+				var vm = this;
+				setTimeout(function(){
+					vm.value = 0;
+				},5000);
+			}
+		}
+	})
+</script>
+</html>

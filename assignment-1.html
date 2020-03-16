@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Assignment - 1</title>
+	<script src="vue.js"></script>
+	<link rel="stylesheet" type="text/css" href="">
+</head>
+<body>
+	<div id="app">
+		<p>Vue JS is pretty cool - {{name}} ({{age}})</p>
+
+		<p>{{ageThreeTimes()}}<p>
+
+		<p>{{printRandonNumber()}}</p>
+
+		<div id="imageDiv">
+			<img v-bind:src="imageLink">
+		</div>
+
+		<div>
+			<input type="text" name="" v-bind:value="name">
+		</div>
+	</div>
+
+</body>
+<script>
+	new Vue({
+		el:"#app",
+		data:{
+			name:'Abhishek Kumar',
+			age:27,
+			imageLink:"https://www.gstatic.com/webp/gallery3/1.png",
+		},
+		methods:{
+			ageThreeTimes:function(){
+				return 3*this.age;
+			},
+			printRandonNumber(){
+				return (Math.floor(Math.random()*100));
+			}
+		}
+	})
+
+</script>
+</html>

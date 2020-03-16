@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Events</title>
+	<script type="text/javascript" src="vue.js"></script>
+</head>
+<div id="app">
+<body>
+<button v-on:click="increaseCount(5)">Click Me</button>
+<p>{{counter}}</p>
+<p v-on:mousemove="changeCoordinates">Coordinates: {{x}}/{{y}} - <span v-on:mousemove.stop.prevent="">DEAD SPOT</span></p>
+<input type="text" v-on:keydown.enter.space.tab="alertMe">
+</body>
+</div>
+<script type="text/javascript">
+	new Vue({
+		el:"#app",
+		data:{
+			counter:0,
+			x:0,
+			y:0,
+		},
+		methods:{
+			increaseCount:function(step){
+				this.counter += step;
+			},
+			changeCoordinates:function(event){
+				this.x = event.clientX;
+				this.y = event.clientY;
+			},
+			alertMe:function(){
+				alert('Alert');
+			}
+		}
+	})
+
+</script>
+</html>

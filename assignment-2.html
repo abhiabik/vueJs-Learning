@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Assignment 2</title>
+	<script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+<div id="exercise">
+	<div>
+		<button v-on:click="alertMe">Alert Me</button>
+	</div>
+
+	<div>
+		<input type="text" v-on:keyup="inputKeyPress($event)" v-model="value">
+		<p>{{value}}</p>
+	</div>
+
+	<div>
+		<input type="text" name="" v-on:keydown.enter="inputKeyPress($event)">
+		<p>{{value}}</p>
+	</div>
+</div>
+</body>
+<script type="text/javascript">
+	new Vue({
+		el:"#exercise",
+		data:{
+			value:'Hey',
+		},
+		methods:{
+			alertMe:function(){
+				alert('Alert');
+			},
+			inputKeyPress:function(event){
+				this.value = event.target.value;
+			}
+		}
+	})
+
+</script>
+</html>
